@@ -195,13 +195,14 @@ Foram implementados testes via dbt:
 ### 1. Clonar o repositório
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/yuriolv/case_gogroup.git
 cd projeto
 ```
 
 ### 2. Subir ambiente completo
 
 ```bash
+docker compose build
 docker compose up -d
 ```
 
