@@ -1,0 +1,6 @@
+sources:
+  - name: raw
+    database: kabum_ads
+    schema: raw
+    tables:
+      - name: smartphones
