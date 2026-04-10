@@ -28,6 +28,7 @@ renamed as (
     select
         product_id,
         title,
+        brand,
         price::numeric as price,
         original_price::numeric as original_price,
         seller_id,
@@ -39,11 +40,7 @@ renamed as (
 
         (price - original_price) as discount_value,
 
-        case 
-            when original_price > 0 
-            then (original_price - price) / original_price
-            else 0
-        end as discount_pct
+        coalesce(discount_pct::numeric, 0) / 100 as discount_pct
 
     from filtered
 
