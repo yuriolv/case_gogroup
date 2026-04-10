@@ -1,5 +1,5 @@
 select
-    date,
+    collected_at,
 
     avg(price) as avg_price,
     min(price) as min_price,
