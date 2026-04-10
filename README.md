@@ -197,6 +197,29 @@ Essa abordagem permite analisar o volume relativo de vendas entre vendedores, me
 Para enriquecer o cenário do case, optei por simular dias distintos de coleta por meio de execuções em horários diferentes. Os intervalos foram definidos de forma a permitir mudanças nos dados retornados pela API, possibilitando a análise de variações ao longo do tempo.
 
 ---
+### 📌 8. Score de Performance de Vendedores
+
+Para avaliar o desempenho dos vendedores, foi criado um score baseado na combinação de volume e valor de vendas.
+
+A lógica aplicada foi:
+
+* Base do score:
+  
+  quantidade vendida * preço médio
+
+* Normalização:
+
+  base / max(base)
+
+Essa abordagem permite:
+
+* comparar vendedores em uma escala padronizada (0 a 1)
+* equilibrar volume e valor financeiro (não apenas quantidade)
+* identificar vendedores com melhor performance geral
+
+A normalização foi aplicada para evitar distorções causadas por grandes outliers, garantindo comparabilidade entre os vendedores.
+
+---
 
 ## 📊 Dashboard (Power BI)
 
