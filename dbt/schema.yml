@@ -1,0 +1,23 @@
+models:
+  - name: stg_smartphones
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+
+      - name: price
+        tests:
+          - not_null
+
+  - name: dim_sellers
+    columns:
+      - name: seller_id
+        tests:
+          - not_null
+
+  - name: fct_smartphone_prices
+    columns:
+      - name: product_id
+        tests:
+          - not_null

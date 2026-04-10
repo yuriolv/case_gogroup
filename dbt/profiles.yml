@@ -1,0 +1,12 @@
+price_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres_app
+      user: admin
+      password: admin
+      port: 5432
+      dbname: kabum_ads
+      schema: dbt
+      threads: 2

@@ -1,0 +1,14 @@
+name: price_pipeline
+version: 1.0
+config-version: 2
+
+profile: price_pipeline
+
+model-paths: ["models"]
+
+models:
+  price_pipeline:
+    staging:
+      +schema: stg
+    marts:
+      +schema: marts
