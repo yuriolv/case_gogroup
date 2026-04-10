@@ -161,6 +161,11 @@ Dessa forma, optei por utilizar o hash das principais características do produt
 * Testes de qualidade embutidos (nulls, uniqueness, relationships)
 
 ---
+### 📌 7. Dias de Coleta
+
+Para enriquecer o cenário do case, optei por simular dias distintos de coleta por meio de execuções em horários diferentes. Os intervalos foram definidos de forma a permitir mudanças nos dados retornados pela API, possibilitando a análise de variações ao longo do tempo.
+
+---
 
 ## 📊 Dashboard (Power BI)
 
