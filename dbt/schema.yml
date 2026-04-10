@@ -15,9 +15,17 @@ models:
       - name: seller_id
         tests:
           - not_null
+          - unique
 
   - name: fct_smartphone_prices
     columns:
       - name: product_id
         tests:
           - not_null
+
+      - name: seller_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_sellers')
+              field: seller_id
