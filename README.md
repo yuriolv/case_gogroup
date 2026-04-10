@@ -59,13 +59,35 @@ A solução foi construída com uma arquitetura baseada em camadas:
 
 ### 🔹 Mart Layer
 
-* Modelos analíticos finais
-* Tabelas fato e dimensão:
+Camada responsável pelos modelos analíticos finais, estruturados para consumo direto no BI, seguindo abordagem dimensional (fato + dimensões).
 
-  * `fact_product_prices`
-  * `dim_sellers`
-  * `metrics`
-* Otimizado para consumo pelo BI
+**Principais tabelas:**
+
+* `fact_product_prices`  
+  * Tabela fato com granularidade de produto por coleta  
+  * Contém métricas como preço, estoque, desconto e indicadores derivados  
+
+* `dim_sellers`  
+  * Dimensão com atributos descritivos dos vendedores  
+
+* `mart_sellers`  
+  * Agregações analíticas de vendedores  
+  * Métricas de volume estimado de vendas e performance  
+
+* `mart_products_price_changed`  
+  * Tabela derivada para análise de variações de preço  
+  * Filtra apenas registros com mudança relevante entre coletas  
+
+* `metrics`  
+  * Tabela com indicadores consolidados para consumo direto no BI  
+
+* `dim_calendario` *(gerada no Power BI)*  
+  * Suporte a análises temporais (time intelligence)  
+  * Utilizada para facilitar construções de métricas no dashboard  
+
+**Características da camada:**
+
+* Otimizada para consultas analíticas  
 
 ---
 
@@ -159,6 +181,15 @@ Dessa forma, optei por utilizar o hash das principais características do produt
 * Versionamento de SQL
 * Separação entre staging e marts
 * Testes de qualidade embutidos (nulls, uniqueness, relationships)
+
+---
+📌 8. Estimativa de Vendas
+
+A API utilizada não fornece dados explícitos de vendas. Para contornar essa limitação e viabilizar as análises de volume, foi criada uma métrica derivada baseada na variação de estoque ao longo do tempo.
+
+A lógica assume que reduções no estoque representam vendas, enquanto aumentos são tratados como reposição. Assim, a quantidade vendida é estimada a partir da diferença entre o estoque atual e o da coleta anterior.
+
+Essa abordagem permite analisar o volume relativo de vendas entre vendedores, mesmo sem acesso direto aos dados reais.
 
 ---
 ### 📌 7. Dias de Coleta
