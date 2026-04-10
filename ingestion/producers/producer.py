@@ -25,14 +25,14 @@ class KabumSmartphonesProducer:
         
     def generate_hash(self, record: dict) -> str:
         relevant_fields = {
-            "product_id": record["product_id"],
-            "title": record["title"],
-            "price": record["price"],
-            "original_price": record["original_price"],
-            "stock": record["stock"],
-            "seller_id": record["seller_id"],
-            "condition": record["condition"],
-            "free_shipping": record["free_shipping"],
+            "product_id": record.get("product_id"),
+            "title": record.get("title"),
+            "price": record.get("price"),
+            "original_price": record.get("original_price"),
+            "stock": record.get("stock"),
+            "seller_id": record.get("seller_id"),
+            "condition": record.get("condition"),
+            "free_shipping": record.get("free_shipping"),
         }
 
         normalized = json.dumps(relevant_fields, sort_keys=True)
