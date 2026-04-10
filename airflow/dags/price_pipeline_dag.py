@@ -51,7 +51,7 @@ default_args = {
 
 with DAG(
     dag_id="price_pipeline_hourly",
-    description="Pipeline de preços com Kafka + Postgres + dbt",
+    description="Pipeline de monitoramento de preços de Smartphones",
     schedule="@hourly",
     start_date=datetime(2024, 1, 1),
     catchup=False,
