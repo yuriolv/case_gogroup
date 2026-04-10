@@ -6,7 +6,6 @@ with base as (
         brand,
         seller_id,
 
-        date_trunc('day', collected_at) as date_trunc,
         collected_at,
 
         price,
